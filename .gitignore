@@ -16,6 +16,7 @@ node_modules/
 
 # Environment files
 .env
+env/
 
 # Build outputs
 /dist
@@ -28,3 +29,5 @@ node_modules/
 auth.py
 models.py
 __init__.py
+instance/
+
