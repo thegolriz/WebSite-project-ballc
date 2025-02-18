@@ -1,0 +1,14 @@
+{%extends "base.html"%}
+{% block title%}Logout{% endblock%}
+{%block content%}
+<form method="POST" onsubmit="return myFuntion()">
+    <h3 align="center">Logout</h3>
+    <button type="submit" class="btn btn-primary" onclick="myFunction()">Logout</button>
+    
+</form>
+<script>
+  function myFunction() {
+    confirm("Are you sure you want to logout?");
+  }
+  </script>
+{%endblock%}

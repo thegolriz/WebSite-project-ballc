@@ -20,3 +20,7 @@ def login_api():
             return jsonify({"error": "Invalid email or password"}), 401
 
     return jsonify({"message": "Login endpoint"}), 200
+
+@auth_routes.route('/logout', methods=['GET','POST'])
+def logout_api():
+    return jsonify({"message": "Logout endpoint"}), 200
