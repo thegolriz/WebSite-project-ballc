@@ -30,4 +30,5 @@ auth.py
 models.py
 __init__.py
 instance/
+__pycache__/
 
