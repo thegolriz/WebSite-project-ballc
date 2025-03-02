@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import DeclarativeBase
 from dotenv import load_dotenv
+from flask_jwt_extended import JWTManager, create_access_token, create_refresh_token, jwt_required, get_jwt_identity
 import os
 from os import path
 
@@ -16,9 +17,15 @@ DB_NAME = "/website/database.db"
 def create_app():
     load_dotenv()
     app = Flask(__name__)
-
+    #app configs here
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
     app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
+    #jwt configs bewloer
+    app.config["JWT_SECRET_KEY"] = os.getenv('JWT_SECRET_KEY')
+    app.config["JWT_ACCESS_TOKEN_EXPIRES"] = 3600
+    app.config["JWT_REFRESH_TOKEN_EXPIRES"] = 86400
+    jwt = JWTManager(app)
+    #done
     db.init_app(app)
     #CORS(app)
     from .views import views
