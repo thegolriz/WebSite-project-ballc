@@ -12,7 +12,7 @@ def login_api():
     
     data = request.get_json()
     if not data or 'email' not in data or 'password' not in data:
-        return jsonify({"error": "Missing email and/or password"}), 400
+        return jsonify({"error": "Missing email and/or password"}), 409
     email = data['email']
     password = data['password']
 
@@ -52,22 +52,26 @@ def refresh():
     return jsonify(access_token= new_token),200
 
 #logout is below
-@auth_routes.route('/logout', methods=['GET','POST'])
+@auth_routes.route('/logout', methods=['DELETE','POST'])
 def logout_api():
     return jsonify({"message": "Logout endpoint"}), 200
 
 #signup is below
-@auth_routes.route('/signup', methods =['GET','POST'])
+@auth_routes.route('/signup', methods =['POST'])
 def signup_api():
-    if request.method == 'POST':
-        data= request.get_json()
-        email= data.get('email')
-        firstName = data.get('firstName')
-        password = data.get('password')
-        existing = User.query.filter_by(email=email).first()
-        if existing:
-            return jsonify({"error":"email in use"}),401
-        else:
-            return jsonify({"message":"account created"}),200
+    data= request.get_json()
+    email= data.get('email')
+    firstName = data.get('firstName')
+    password = data.get('password')
+    if not email or not firstName or not password:
+        return jsonify({"error":"Missing required data fields"}),409
         
+    if len(password) < 8:
+        return jsonify({"error":"Password must be at least 8 characters long"}),409
+        
+    existing = User.query.filter_by(email=email).first()
+    if existing:
+        return jsonify({"error":"email in use"}),409
+    else:
+        return jsonify({"message":"account created"}),200 
     return jsonify({"message":"Signup endpoint"}),200
