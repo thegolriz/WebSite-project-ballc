@@ -12,14 +12,15 @@ from os import path
 class Base(DeclarativeBase):
     pass
 db = SQLAlchemy(model_class=Base)
-DB_NAME = "/website/database.db"
+
+
 
 def create_app():
     load_dotenv()
     app = Flask(__name__)
     #app configs here
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('POSTGRES_URI')
     #jwt configs bewloer
     app.config["JWT_SECRET_KEY"] = os.getenv('JWT_SECRET_KEY')
     app.config["JWT_ACCESS_TOKEN_EXPIRES"] = 3600
@@ -36,7 +37,7 @@ def create_app():
     app.register_blueprint(auth, url_prefix='/')
     app.register_blueprint(routes, url_prefix='/api')
     app.register_blueprint(auth_routes, url_prefix='/api')
-    engine = create_engine(os.getenv('MYSQL_URI'), pool_pre_ping=True)
+   
     from .models import User, Note
     with app.app_context():
         print("Attempting to create database...")
