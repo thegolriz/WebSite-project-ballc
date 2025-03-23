@@ -74,4 +74,4 @@ def signup_api():
         return jsonify({"error":"email in use"}),409
     else:
         return jsonify({"message":"account created"}),200 
-    return jsonify({"message":"Signup endpoint"}),200
+    
