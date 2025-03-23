@@ -12,7 +12,7 @@ def create_app():
     load_dotenv()
     app = Flask(__name__)
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('POSTGRES_URI')
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
     db.init_app(app)
 
     app.register_blueprint(routes, url_prefix='/api')  # Add URL prefix
