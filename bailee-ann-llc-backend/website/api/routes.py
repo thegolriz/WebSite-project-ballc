@@ -11,13 +11,13 @@ def hello_world():
     
 @routes.route('/users', methods=['GET'])
 def get_users():
-    users = User.query.all()  # Corrected "Users" to "User"
+    users = User.query.all()  
     users_list = [
         {"id": user.id, "email": user.email} for user in users
     ]
     return jsonify(users_list)
 
-@routes.route('/notes/<int:user_id>', methods=['GET'])
+@routes.route('/notes', methods=['GET'])
 def get_user_notes(user_id):
     notes = Note.query.filter_by(user_id=user_id).all()
     notes_list = [
