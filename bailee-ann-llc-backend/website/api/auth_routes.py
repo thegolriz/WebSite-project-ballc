@@ -9,7 +9,6 @@ auth_routes = Blueprint('auth_routes', __name__)
 #the login api is down below
 @auth_routes.route('/login', methods=['POST'])
 def login_api():
-    
     data = request.get_json()
     if not data or 'email' not in data or 'password' not in data:
         return jsonify({"error": "Missing email and/or password"}), 409
@@ -63,6 +62,7 @@ def signup_api():
     email= data.get('email')
     firstName = data.get('firstName')
     password = data.get('password')
+    
     if not email or not firstName or not password:
         return jsonify({"error":"Missing required data fields"}),409
         
@@ -73,5 +73,8 @@ def signup_api():
     if existing:
         return jsonify({"error":"email in use"}),409
     else:
+        new_user = User(email=email,password=password,firstName=firstName)
+        db.session.add(new_user)
+        db.session.commit()
         return jsonify({"message":"account created"}),200 
     
