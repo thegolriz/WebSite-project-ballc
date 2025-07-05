@@ -60,10 +60,11 @@ def logout_api():
 def signup_api():
     data= request.get_json()
     email= data.get('email')
-    firstName = data.get('firstName')
+    first_name = data.get('firstName')
+    last_name = data.get('lastName')
     password = data.get('password')
     
-    if not email or not firstName or not password:
+    if not email or not first_name or not last_name or not password:
         return jsonify({"error":"Missing required data fields"}),409
         
     if len(password) < 8:
@@ -73,7 +74,8 @@ def signup_api():
     if existing:
         return jsonify({"error":"email in use"}),409
     else:
-        new_user = User(email=email,password=password,firstName=firstName)
+        # red underline is lsp error, code works fine so far
+        new_user = User(email=email,password=password,first_name=first_name, last_name=last_name)
         db.session.add(new_user)
         db.session.commit()
         return jsonify({"message":"account created"}),200 
