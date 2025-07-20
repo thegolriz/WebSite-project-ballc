@@ -1,3 +1,8 @@
+name: Pull request check
+on:
+  push:
+    branches:
+      - "*"
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -18,3 +23,4 @@ jobs:
           poetry run isort . --check-only
           poetry run flake8 .
 
+          echo 'Linting tests done'
