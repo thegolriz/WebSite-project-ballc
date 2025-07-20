@@ -1,4 +1,5 @@
 from flask import Blueprint, jsonify
+
 from website.models import Note, User
 
 routes = Blueprint("routes", __name__)
