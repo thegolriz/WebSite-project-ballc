@@ -31,8 +31,11 @@ jobs:
       - name: Run lint checks
         working-directory: bailee-ann-llc-backend
         run: |
+          echo 'running black'
           poetry run black . --check
+          echo 'running isort'
           poetry run isort . --check-only
+          echo 'running flake8'
           poetry run flake8 .
           echo 'Linting tests done'
 
