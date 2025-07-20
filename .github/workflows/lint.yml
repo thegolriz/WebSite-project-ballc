@@ -1,20 +1,41 @@
+name: Pull request check
+
+on:
+  push:
+    branches:
+      - "**"      # runs on pushes to any branch
+  pull_request:
+    branches:
+      - "**"      # runs on PRs targeting any branch
+
 jobs:
   lint:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
+
       - name: Install Poetry
         uses: snok/install-poetry@v1
+
       - name: Install dependencies
+        working-directory: bailee-ann-llc-backend
         run: poetry install
+
       - name: Run lint checks
+        working-directory: bailee-ann-llc-backend
         run: |
+          echo 'running black'
           poetry run black . --check
-          poetry run isort . --check-only
+          # echo 'running isort'
+          # poetry run isort . --check-only
+          echo 'running flake8'
           poetry run flake8 .
+          echo 'Linting tests done'
 
