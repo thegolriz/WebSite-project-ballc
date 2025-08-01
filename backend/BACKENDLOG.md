@@ -68,15 +68,31 @@ After exams, internship grinds, and some well-earned mental rest
 , I’m back on the project. I’ve started by documenting the work so far 
 and planning what’s next.
 
-###  What’s Next
-
-- Debug broken API endpoints (likely tied to the missing/deleted Postgres schemas)
-- Rebuild DB migrations if needed
-- Write a clean API usage guide for external use
-- Add Docker support
-- Finish frontend and connect to the backend
-
 ---
+
+## July - Docker, Poetry, Pytest
+
+I have fixed the current API's around mid June, the DB was rebuilt and I learned
+how to move the DB for future instances, i.e. using a cloud service. This month
+was all about adding modern dependeny management and containorizing my project.
+I have made a DockerFile with some basic stuff, added poetry to keep up with
+the dependencies and even add a CI action to check flake8 and black formatting
+before being allowed to merge pull requests. The final thing I started working
+on was a docker-compose file. I can now also put more in depth text on what i've
+done since its current work being written down.
+
+To summarize:
+- Added DockerFile
+- Added Poetry 
+- Renamed long backend name folder to just backend
+- Added CI actions to run flake8 and black
+- Added docker-compose.yml file
+
+### What's Next
+- Fix isort for CI 
+- Flesh out docker-compose file
+- Make mock DB for test suite
+- Research how to cache user information with Redis
 
 ###  Author:  
 **Anis Golriz**

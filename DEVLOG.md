@@ -1,7 +1,7 @@
 # Welcome to my personal project
 
 ## Quick rundown
-There is both a frontend and back end folder however the main pupose of this 
+There is both a frontend and backend folder however the main pupose of this 
 project is the backend. While I have every intention of fully finihsing this 
 project the vast majority of the time will be learning API functionalilty.
 

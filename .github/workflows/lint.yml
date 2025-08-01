@@ -25,11 +25,11 @@ jobs:
         uses: snok/install-poetry@v1
 
       - name: Install dependencies
-        working-directory: bailee-ann-llc-backend
+        working-directory: backend
         run: poetry install
 
       - name: Run lint checks
-        working-directory: bailee-ann-llc-backend
+        working-directory: backend
         run: |
           echo 'running black'
           poetry run black . --check
