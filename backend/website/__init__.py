@@ -18,22 +18,24 @@ migrate = Migrate()
 
 def create_app():
     load_dotenv()
-    app = Flask(__name__) 
+    app = Flask(__name__)
     basedir = os.path.abspath(os.path.dirname(__file__))
-    load_dotenv(os.path.join(basedir, '..', '..', '.env'))
-   
+    load_dotenv(os.path.join(basedir, "..", "..", ".env"))
+
     # app configs here
-    app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
+    app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("SQLALCHEMY_DATABASE_URI")
     # jwt configs bewloer
-    app.config["JWT_SECRET_KEY"] = os.getenv('JWT_SECRET_KEY')
+    app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY")
     app.config["JWT_ACCESS_TOKEN_EXPIRES"] = 3600
     app.config["JWT_REFRESH_TOKEN_EXPIRES"] = 86400
     db.init_app(app)
     jwt = JWTManager(app)  # noqa: F841
     from website.api.auth_routes import auth_routes  # noqa: F401
     from website.api.routes import routes  # noqa: F401
-    app.register_blueprint(routes, url_prefix='/api')
-    app.register_blueprint(auth_routes, url_prefix='/api')
+
+    app.register_blueprint(routes, url_prefix="/api")
+    app.register_blueprint(auth_routes, url_prefix="/api")
     from .models import Note, User  # noqa: F401
+
     return app
