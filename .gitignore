@@ -16,8 +16,7 @@ node_modules/
 
 # Environment files
 .env
-env/
-
+.env_dev
 # Build outputs
 /dist
 /build
@@ -26,9 +25,5 @@ env/
 *.tmp
 
 #important files to hide
-auth.py
-models.py
-__init__.py
 instance/
 __pycache__/
-
