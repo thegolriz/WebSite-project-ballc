@@ -6,6 +6,7 @@ from flask_jwt_extended import JWTManager
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase
+from flask_cors import CORS
 
 
 class Base(DeclarativeBase):
@@ -31,6 +32,7 @@ def create_app():
     app.config["JWT_REFRESH_TOKEN_EXPIRES"] = 86400
     db.init_app(app)
     jwt = JWTManager(app)  # noqa: F841
+    CORS(app, origins=["http://localhost:3000", "https://yourfuturefrontend.com"])
     from website.api.auth_routes import auth_routes  # noqa: F401
     from website.api.routes import routes  # noqa: F401
 

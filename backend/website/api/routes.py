@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify
 
 from website.models import Note, User
-
+from flask_jwt_extended import get_jwt_identity, jwt_required
 routes = Blueprint("routes", __name__)
 
 
@@ -18,7 +18,9 @@ def get_users():
 
 
 @routes.route("/notes", methods=["GET"])
+@jwt_required()
 def get_user_notes(user_id):
+    user_id = get_jwt_identity()
     notes = Note.query.filter_by(user_id=user_id).all()
     notes_list = [
         {"id": note.id, "data": note.data, "date": note.date.isoformat()}
