@@ -6,7 +6,6 @@
 
 ## Local Install
 To run the backend locally you will first need to clone the git repo onto your machine.
-i.e (git clone https://github.com/thegolriz/WebSite-project-ballc.git)
 Once this is done ensure all needed files came over:
 - Docker
 - Poetry
@@ -32,6 +31,7 @@ To start the server and send api requests, ensure you are in the backend folder,
 **Poetry run flask run**...You should now see your local host, to make sure its working open a browser and go to localhost/api/hello.
 http://127.0.0.1:5000/api/hello 
 you should recieve a page that shows **{"message":"Hello from the API"}** 
+
 ### Running via postman
 To run via Postman, ensure you have postman agent installed and running then, go to [Postman](https://www.postman.com/)
 
@@ -41,6 +41,10 @@ To run via Postman, ensure you have postman agent installed and running then, go
 | /users       | GET        | Hit send   |
 | /logout      | POST/DELETE| Hit send   |
 | /signup      | POST       | Body -> Raw<br> email(unique)<br> first name <br> last name<br> password( len > 7) <br> [Example Signup](#-Example-Signup)|
+| /login       | POST       | Body -> Raw<br> email<br> password<br> [Example Login](#-Example-Login)|
+| /protected   | GET        | Authorization<br> Bearer token, paste access token generated form login (no quotes)|
+| /refresh     | POST       | Authorization<br> Bearer token, paste refresh token generated from login (no quotes)|
+| /notes       | GET        | Authorization<br> Bearer token, paste access token generated from login (no quotes)|
 
 
 
@@ -57,4 +61,13 @@ To run via Postman, ensure you have postman agent installed and running then, go
 }
 ```
 Passwords are hashed then put into database for data protection.
+
+#### Example Login
+```
+{
+    "email":"testywesty@test.test",
+    "password":"12345678"
+}
+~~~
+
 

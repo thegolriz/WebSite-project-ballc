@@ -20,7 +20,7 @@ def get_users():
 
 @routes.route("/notes", methods=["GET"])
 @jwt_required()
-def get_user_notes(user_id):
+def get_user_notes():
     user_id = get_jwt_identity()
     notes = Note.query.filter_by(user_id=user_id).all()
     notes_list = [
