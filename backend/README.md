@@ -68,6 +68,12 @@ Passwords are hashed then put into database for data protection.
     "email":"testywesty@test.test",
     "password":"12345678"
 }
-~~~
-
+```
+### Running via CURL
+| API Endpoint | Type | How to run |
+|--------------|------|------------|
+| /hello       | GET  | curl http://127.0.0.1:5000/api/hello |
+| /users       | GET  |  curl http://127.0.0.1:5000/api/users |
+| /logout      | POST/DELETE | curl - X POST/DELETE https://127.0.0.1:5000/api/logout/
+| /signup     | POST | curl -X POST -H "Content-Type: application/json" -d '{"email":"makeemail","firstName":"makename","lastName":"makename","password":"makepass"}' http://127.0.0.1:5000/api/signup|
 
