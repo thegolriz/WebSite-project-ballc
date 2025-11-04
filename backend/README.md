@@ -1,7 +1,8 @@
 # Backend Instructions
 
 * [Local Install](#Local-Install)
-* [Online *TBD*](#Running-via-postman)
+* [Postman](#Running-via-postman)
+* [Curl](#Running-via-CURL)
 * [Issues](https://github.com/thegolriz/WebSite-project-ballc/issues)
 
 ## Local Install
