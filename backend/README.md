@@ -2,7 +2,7 @@
 
 * [Local Install](#Local-Install)
 * [Online *TBD*](#Running-via-postman)
-* [Issues](#https://github.com/thegolriz/WebSite-project-ballc/issues)
+* [Issues](https://github.com/thegolriz/WebSite-project-ballc/issues)
 
 ## Local Install
 To run the backend locally you will first need to clone the git repo onto your machine.
