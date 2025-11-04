@@ -94,6 +94,15 @@ To summarize:
 - Make mock DB for test suite
 - Research how to cache user information with Redis
 
+## August - School start, Arch fun
+
+I took a break while getting adjusted to school, and I built my first pc. This did take
+a good chunk of time, however, I am getting back into the groove of working as well as
+making a schedule which allows for fun and work. I believe I may have an idea of what 
+to shift this project towards to see if I can get real world data. Of course, i'll need
+to do research as to see if my idea is not already implemented, if it is maybe I can do 
+some sort of alternative, like airbnb and vrbo. Similar models with different systems.
+
 ###  Author:  
 **Anis Golriz**
 
