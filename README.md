@@ -1,28 +1,20 @@
-# Welcome to my personal project
+# Realty Website Backend (Archived)
 
-## Overview
-This is a full-stack project with both a frontend and backend, 
-though the primary focus is on building and learning backend functionality, 
-specifically working with APIs, JWT authentication, and other modern backend practices.
+> **Archived learning project.** This is where I went from almost no backend experience to a working Flask API with JWT authentication, password hashing, and database migrations. The lessons here became the foundation for [Realiti](https://github.com/thegolriz/Realiti), my full-stack capstone.
 
-## Frontend
-The frontend hasn't been started yet. Once development begins, it will serve 
-as the website for a friend’s realty business, with a sleek, modern real estate design.
+## What's here
 
-🛠️ Backend
-The backend has undergone a few redesigns and now follows up-to-date practices like:
+- Flask REST API structured with an app factory and blueprints
+- JWT-based authentication (access and refresh tokens) with password hashing
+- SQLAlchemy models with Alembic migrations via Flask-Migrate
+- Dockerfile, Poetry dependency management, and a flake8 lint check in GitHub Actions
 
-- JWT-based authentication
+## Why it's archived
 
-- Password hashing
+It started as the backend for a friend's realty business website. Once Realiti and my internships took priority, I stopped here with the backend in place and no frontend. Realiti is where these ideas got finished.
 
-- RESTful API structure
+## The journey
 
-More detailed documentation and setup instructions can be found in: 
-backend/README.md (Not yet made).
+[BACKENDLOG.md](backend/BACKENDLOG.md) documents how this backend came together month by month, from following tutorials with SQLite to a structured Flask API.
 
-For a detailed rundown of my journey through the backend view:
-backend/BACKENDLOG.md.
-
-**Author**: Anis Golriz
-
+**Author:** Anis Golriz
